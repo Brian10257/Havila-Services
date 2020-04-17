@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area">
+    <!-- Top Breadcrumb Area -->
+    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+        style="background-image: url(/static/img/bg-img/2.jpg);">
+        <h2>Contact US</h2>
+    </div>
+
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- ##### Contact Area Info Start ##### -->
+<!-- ##### Contact Area Start ##### -->
+<div class="contact-area-info section-padding-0-100">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <!-- Contact Thumbnail -->
+            {% include 'partials/_alerts.html' %}
+            <div class="col-12 col-md-6" style="margin-top: 100px;">
+                <div class="contact--thumbnail">
+                    <img src="/static/img/bg-img/1.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-5">
+                <!-- Section Heading -->
+                <div class="section-heading">
+                    <h2>CONTACT US</h2>
+                    <p>We are improving our services to serve you better.</p>
+                </div>
+                <!-- Contact Information -->
+            
+                <div class="contact-information">
+                    <p><span>Address:</span> Bonabery</p>
+                    <p><span>Phone:</span> +(237) 678293880</p>
+                    <p><span>Email:</span> info@youremail.com</p>
+                    <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Contact Area End ##### -->
+
+<!-- ##### Contact Area Info End ##### -->
+
+<!-- ##### Contact Area Start ##### -->
+<section class="contact-area">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-12">
+                <!-- Section Heading -->
+                <div class="section-heading">
+                    <h2>GET IN TOUCH</h2>
+                    <p>Send us a message, we will call back later</p>
+                </div>
+                
+                <!-- Contact Form Area -->
+                <div class="contact-form-area mb-100">
+                    <form action="{% url 'contact' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" id="contact-name" placeholder="Your Name" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email"placeholder="Your Email">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="phone" id="contact-email" placeholder="Phone Number">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="subject" id="contact-subject" placeholder="Subject">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="message" id="messages" cols="30" rows="20"
+                                        placeholder="Message" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn alazea-btn mt-15">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Contact Area End ##### -->
+
+{% endblock %}

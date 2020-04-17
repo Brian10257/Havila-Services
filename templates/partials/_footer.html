@@ -1,0 +1,52 @@
+{% load static %}
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area bg-img" style="background-image: url(/satic/img/bg-img/3.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+    
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-3">
+                        <div class="single-footer-widget">
+                            <div class="footer-logo mb-30">
+                                <a href="#"><img src="/static/img/core-img/logo.png" alt=""></a>
+                            </div>
+                            <p>Lorem ipsum dolor sit samet, consectetur adipiscing elit. India situs atione mantor</p>
+                        </div>
+                    </div>
+    
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>QUICK LINK</h5>
+                            </div>
+                            <nav class="widget-nav">
+                                <ul>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li><a href="{% url 'services' %}">Services</a></li>
+                                    <li><a href="{% url 'blogs' %}">Blog</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+    
+                    <!-- Single Footer Widget -->
+                    <div class="col-md-6 text-center">
+                       <marquee behavior="scroll" bgcolor="grey" loop="-1" width="30%">
+                <i>
+                    <font color="black"><strong>Welcome</strong> Today's date is : <script language="javascript">
+                        var today = new Date();
+                        document.write(today);
+                    </script> </font>
+                </i>
+            </marquee>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->

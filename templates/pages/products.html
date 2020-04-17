@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area">
+    <!-- Top Breadcrumb Area -->
+    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+        style="background-image: url(/static/img/bg-img/24.jpg);">
+        <h2>Our Output</h2>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- ##### Portfolio Area Start ##### -->
+
+<div class="row" style="margin-top: 50px;">
+    <div class="col-12">
+        <!-- Section Heading -->
+        <div class="section-heading text-center">
+            <h2>Products</h2>
+            <p>The breaking news about Gardening & House plants</p>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row align-items-stretch">
+        {% if products_list %}
+            {% for detail in products_list %}
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" style="margin-top: 50px;">
+                <div class="h-entry text-center">
+                    <img src="{{detail.photo.url}}" alt="Image" class="img-fluid rounded" style="width: 300px; height:300px;">
+                    <h2 class="font-size-regular" ><a href="{{detail.get_absolute_url}}" style="font-size: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">{{detail.title}}</a></h2>
+                    <p>{{detail.description | truncatechars:100}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="display-4 text-capitalize">no info available, please check back later</div>
+        {% endif %}
+        </div>
+        <div class="row float-right">
+            <div class="row pull-right">
+                <div class="col-md-12">
+                    {% if page_obj.has_other_pages %}
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a href="?page={{page_obj.previous_page_number}} " class="page-link">&laquo;</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">&laquo;</a>
+                        </li>
+                        {% endif %}
+                        {% for i in page_obj.paginator.page_range %}
+                        {% if page_obj.number == i %}
+                        <li class="page-item active">
+                            <a class="page-link">{{i}}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a href="?page={{i}}" class="page-link">{{i}}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_other_pages %}
+                        <ul class="pagination">
+                            {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a href="?page={{page_obj.next_page_number}} " class="page-link">&raquo;</a>
+                            </li>
+                            {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link">&raquo;</a>
+                            </li>
+                            {% endif %}
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

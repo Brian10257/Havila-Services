@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area">
+    <!-- Top Breadcrumb Area -->
+    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+        style="background-image: url(/static/img/bg-img/24.jpg);">
+        <h2>Our Production</h2>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- ##### Portfolio Detaila Area Start ##### -->
+<section class="portfolio-details-area section-padding-0-100" style="margin-top: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2>{{detail.title}}</h2>
+                    <p>Author: {{detail.author}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-text mb-100">
+            <div class="row">
+                <div class="col-12">
+                    <p>{{detail.description | linebreaks}}</p>
+                </div>
+                <div class="col-md-12 text-right" style="font-size: larger;">Date: <span style="font-weight: 900;">04/13/2020</span> </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Slides -->
+    <div class="portfolio-slides owl-carousel mb-100" style="margin-bottom:100px;"> 
+        <!-- Single Portfolio Slide -->
+        <div class="single-portfolio-slide">
+            <img src="{{detail.photo.url}}" style="width: 800px; height:400px;" alt="">
+        </div>
+        <!-- Single Portfolio Slide -->
+        <div class="single-portfolio-slide">
+            <img src="{{detail.photo2.url}}" style="width: 800px; height:400px;" alt="">
+        </div>
+        <!-- Single Portfolio Slide -->
+        <div class="single-portfolio-slide">
+            <img src="{{detail.photo3.url}}" style="width: 800px; height:400px;" alt="">
+        </div>
+        <!-- Single Portfolio Slide -->
+        <div class="single-portfolio-slide">
+            <img src="{{detail.photo4.url}}" style="width: 800px; height:400px;" alt="">
+        </div>
+    </div>
+</section>
+<!-- ##### Portfolio Detaila Area End ##### -->
+
+{% endblock %}

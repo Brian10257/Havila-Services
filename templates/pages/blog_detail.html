@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area">
+    <!-- Top Breadcrumb Area -->
+    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+        style="background-image: url(/static/img/bg-img/24.jpg);">
+        <h2>{{post.title}}</h2>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+{% include 'partials/_alerts.html' %}
+<!-- ##### Blog Content Area Start ##### -->
+<section class="blog-content-area section-padding-0-100" style="margin-top: 50px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Blog Posts Area -->
+            <div class="col-12">
+                <div class="blog-posts-area">
+
+                    <!-- Post Details Area -->
+                    <div class="single-post-details-area">
+                        <div class="post-content">
+                            <h4 class="post-title">{{post.sub_title}}</h4>
+                            <div class="post-meta mb-30">
+                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> {{post.date_published}}</a>
+                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{post.author_name}}</a>
+                            </div>
+                            <div class="pic">
+                                <img src="{{post.photo.url}}" alt="">
+                            </div>
+                            <div class="col-12">
+                                <p>{{post.content}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix">
+                    {% with comments.count as total_comments %}
+                        <h4 class="headline">{{total_comments}} Comments</h4>
+                    {% endwith %}
+                        {%for comment in comments%}
+                        <ol>
+                            <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <div class="comment-wraer d-flex">
+                                    <!-- Comment Content -->
+                                    <div class="comment-content col-md-6" style="margin-left: 110px; margin-top:50px">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <h5>{{comment.name}}</h5>
+                                            <span class="comment-date">{{comment.comment_date}} </span>
+                                        </div>
+                                        <p>{{comment.body}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Leave A Comment -->
+                    <div class="leave-comment-area clearfix">
+                        <div class="comment-form">
+                            <h4 class="headline">Leave A Comment</h4>
+
+                            <div class="contact-form-area col-md-6">
+                                <!-- Comment Form -->
+                                <form action="{% url 'blog' post.slug %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name = "name" id="contact-name"
+                                                    placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" name="email" id="contact-email"
+                                                    placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" name="body" id="messages" cols="30"
+                                                    rows="10" placeholder="Comment"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn alazea-btn">Post Comment</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Blog Content Area End ##### -->
+{% endblock %}

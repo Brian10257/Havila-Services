@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area">
+    <!-- Top Breadcrumb Area -->
+    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+        style="background-image: url(/static/img/bg-img/24.jpg);">
+        <h2>ABOUT US</h2>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+{% include 'partials/_alerts.html' %}
+<!-- ##### About Area Start ##### -->
+<section class="about-us-area" style="margin-top: 50px;">
+    <div class="site-section">
+        <div class="container">
+            <div class="row mb-5">
+            {% for about in about %}
+                <div class="col-md-5 ml-auto mb-5 order-md-2" data-aos="fade">
+                    <img src="{{about.photo1.url}}" alt="Image">
+                </div>
+                <div class="col-md-5 order-md-2" data-aos="fade">
+                    <img src="{{about.photo2.url}}" alt="Image">
+                </div>
+                <div class="col-md-6 order-md-1" data-aos="fade">
+                    <div class="text-left pb-1 border-primary mb-4">
+                        <h2 class="text-primary">Our History</h2>
+                    </div>
+                    <p>{{about.history | linebreaks}}</p>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="site-section bg-image overlay" style="background-image: url('images/hero_bg_4.jpg');">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center border-primary">
+                    <h2 class="font-weight-light text-primary" data-aos="fade">PROCEEDUE</h2>
+                </div>
+            </div>
+            <div class="row">
+            {% for proceedue in proceedue %}
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                    <div class="how-it-work-item">
+                        <span class="number">1</span>
+                        <div class="how-it-work-body">
+                            <h2>{{proceedue.title}}</h2>
+                            <p class="mb-5">{{proceedue.description | linebreaks}}</p>
+                        </div>
+                    </div>
+                </div>
+            {%endfor%}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### About Area End ##### -->
+
+<!-- ##### Team Area Start ##### -->
+<section class="team-area section-padding-100-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2>OUR TEAM</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Single Team Member Area -->
+            {%for team in team%}
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-team-member text-center mb-100">
+                    <!-- Team Member Thumb -->
+                    <div class="team-member-thumb">
+                        <img src="{{team.photo.url}}" style="height:300px ;" alt="">
+                        <!-- Social Info -->
+                        <div class="team-member-social-info">
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <!-- Team Member Info -->
+                    <div class="team-member-info mt-30">
+                        <h5>{{team.name}}</h5>
+                        <p>{{team.work}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- ##### Team Area End ##### -->
+
+<!-- ##### Testimonial Area Start ##### -->
+<section class="testimonial-area section-padding-100 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="testimonials-slides owl-carousel">
+                    <!-- Single Testimonial Slide -->
+                {% for testimonials in testimonials %}
+                    <div class="single-testimonial-slide">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="testimonial-content">
+                                    <!-- Section Heading -->
+                                    <div class="section-heading">
+                                        <h2>TESTIMONIAL</h2>
+                                        <p>{{testimonials.title}}</p>
+                                    </div>
+                                    <p>“{{testimonials.description}}”</p>
+                                    <div class="testimonial-author-info text-center">
+                                        <h6>{{testimonials.name}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="contact-form-area mb-100">
+    <form action="{% url 'about' %}" method="post">
+        {% csrf_token %}
+        <div class="row" style="width: 50%; height:45%; margin-left:20%; margin-bottom:5%;">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" id="contact-name" placeholder="Your Name"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="title" placeholder="SUBJECT">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <textarea class="form-control" name="description" id="messages" cols="10" rows="20" placeholder="Message"
+                        required></textarea>
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-left: 40%;">
+                <button type="submit" class="btn alazea-btn mt-15">Send Message</button>
+            </div>
+        </div>
+    </form>
+<!-- ##### Testimonial Area End ##### -->
+{% endblock %}

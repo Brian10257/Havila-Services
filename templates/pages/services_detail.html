@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {% endblock %}
+{% block content %}
+
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="breadcrumb-area">
+    <!-- Top Breadcrumb Area -->
+    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+        style="background-image: url(/static/img/bg-img/24.jpg);">
+        <h2>{{detail.title}}</h2>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 50px;">
+                <h2 style="margin-top: 30px; margin-bottom: 30px;" class="text-center"><u>{{detail.title}}</u></h2>
+                <img src="{{detail.item_photo.url}}" class="img-a img-fluid pic" style="margin-bottom: 50px;">
+                <div class="container">
+                    <p>{{detail.description | linebreaks}}
+                    </p>
+                    <div class="col-md-12" style="margin: 50px;">
+                        <u><h4 class="float-left">Authur: {{detail.author}}</h4></u>
+                        <u><h4 class="float-right">Date: {{detail.added}}</h4></u>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
