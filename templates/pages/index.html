@@ -63,7 +63,7 @@
             {% for services in services %}
             <div class="col-md-6 col-lg-4 mb-4">
                 <a href="{{services.get_absolute_url}}" class="unit-1 text-center">
-                    <img src="{{services.item_photo.url}}" alt="Image" style="width: 400px; height:400px;"
+                    <img src="{{services.item_photo.url}}" alt="IMG" style="width: 500px; height:500px;"
                         class="img-fluid">
                     <div class="unit-1-text">
                         <h3 class="unit-1-heading">{{services.title}}</h3>
@@ -113,8 +113,8 @@
         {% for products in products %}
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" style="margin-top: 50px;">
                 <div class="h-entry">
-                    <img src="{{products.photo.url}}" alt="Image" class="img-fluid rounded"
-                        style="height: 250px; width: 250px">
+                    <img src="{{products.photo.url}}" alt="IMG" class="img-fluid rounded"
+                        style="height: 350px; width: 350px">
                     <h2 class="font-size-regular"><a href="{{products.get_absolute_url}}">{{products.title}}</a></h2>
                     <p>{{products.description | truncatechars:100}}</p>
                 </div>
@@ -159,7 +159,7 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-blog-post mb-100">
                     <div class="post-thumbnail mb-30">
-                        <a href="{{post.get_absolute_url}}"><img src="{{post.photo.url}}" alt="" style="height:300px;"></a>
+                        <a href="{{post.get_absolute_url}}"><img src="{{post.photo.url}}" alt="IMG" style="height:400px; width:400px"></a>
                     </div>
                     <div class="post-content">
                         <a href="{{post.get_absolute_url}}" class="post-title">

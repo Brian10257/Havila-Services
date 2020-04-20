@@ -19,10 +19,10 @@
             <div class="row mb-5">
             {% for about in about %}
                 <div class="col-md-5 ml-auto mb-5 order-md-2" data-aos="fade">
-                    <img src="{{about.photo1.url}}" alt="Image">
+                    <img src="{{about.photo1.url}}" alt="IMG" class="rounded">
                 </div>
                 <div class="col-md-5 order-md-2" data-aos="fade">
-                    <img src="{{about.photo2.url}}" alt="Image">
+                    <img src="{{about.photo2.url}}" alt="IMG" class="rounded">
                 </div>
                 <div class="col-md-6 order-md-1" data-aos="fade">
                     <div class="text-left pb-1 border-primary mb-4">
@@ -35,7 +35,7 @@
         </div>
     </div>
     
-    <div class="site-section bg-image overlay" style="background-image: url('images/hero_bg_4.jpg');">
+    <div class="site-section bg-image overlay" style="background-image: url('/static/img/hero_bg_4.jpg');">
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-7 text-center border-primary">
@@ -79,7 +79,7 @@
                 <div class="single-team-member text-center mb-100">
                     <!-- Team Member Thumb -->
                     <div class="team-member-thumb">
-                        <img src="{{team.photo.url}}" style="height:300px ;" alt="">
+                        <img src="{{team.photo.url}}"  alt="IMG" style="width: 500px; height: 300px;" class="rounded">
                         <!-- Social Info -->
                         <div class="team-member-social-info">
                             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
