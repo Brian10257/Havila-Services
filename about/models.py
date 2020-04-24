@@ -12,6 +12,7 @@ class About(models.Model):
 
 class Proceedue(models.Model):
     title = models.CharField(max_length=30)
+    count = models.IntegerField()
     description = models.TextField()
     def __str__(self):
         return self.title
