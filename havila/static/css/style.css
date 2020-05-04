@@ -2160,6 +2160,7 @@ img {
   padding: 50px 0 20px 0;
   border-top: 1px solid #ebebeb; }
   .comment_area .headline {
+    text-decoration: underline;
     margin-bottom: 30px; }
   .comment_area .single_comment_area {
     position: relative;
@@ -2238,6 +2239,8 @@ img {
   border-top: 1px solid #ebebeb;
   padding: 50px 0 0 0; }
   .leave-comment-area h4 {
+    text-decoration: underline;
+    text-decoration-color: black;
     margin-bottom: 30px; }
   .leave-comment-area form .form-control {
     width: 100%;
@@ -2957,4 +2960,11 @@ img {
   background-color: transparent;
   padding-right: 0;
   padding-left: 0;
+}
+
+.not_found{
+  font-size: 400px;
+  margin:100px;
+  color: red;
+  border: 2px solid red;
 }
